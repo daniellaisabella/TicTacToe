@@ -14,6 +14,7 @@ function initBoard() {
         [" ", " ", " "]
     ];
     gameOver = false;
+    statusText.textContent = "";
     renderBoard();
 }
 
@@ -46,6 +47,18 @@ async function playerMove(row, col) {
     board[row][col] = "O";
     renderBoard();
 
+    if (checkWinner("O")) {
+        statusText.textContent = "You win!";
+        gameOver = true;
+        return;
+    }
+
+    if (isDraw()) {
+        statusText.textContent = "Draw!";
+        gameOver = true;
+        return;
+    }
+
     await aiMove();
 }
 
@@ -69,19 +82,60 @@ async function aiMove() {
 
     const result = await response.json();
 
-    if (result.row !== undefined) {
-        board[result.row][result.col] = "X";
-        renderBoard();
+    board[result.row][result.col] = "X";
+    renderBoard();
+
+    statusText.textContent =
+        "Nodes visited: " + result.nodesVisited;
+
+    if (checkWinner("X")) {
+        statusText.textContent += " | Computer wins!";
+        gameOver = true;
+        return;
     }
 
-    if (result.winner) {
-        statusText.textContent = "Winner: " + result.winner;
+    if (isDraw()) {
+        statusText.textContent += " | Draw!";
         gameOver = true;
     }
 }
 
+function checkWinner(player) {
+
+    for (let i = 0; i < 3; i++) {
+        if (
+            board[i][0] === player &&
+            board[i][1] === player &&
+            board[i][2] === player
+        ) return true;
+
+        if (
+            board[0][i] === player &&
+            board[1][i] === player &&
+            board[2][i] === player
+        ) return true;
+    }
+
+    if (
+        board[0][0] === player &&
+        board[1][1] === player &&
+        board[2][2] === player
+    ) return true;
+
+    if (
+        board[0][2] === player &&
+        board[1][1] === player &&
+        board[2][0] === player
+    ) return true;
+
+    return false;
+}
+
+function isDraw() {
+    return board.flat().every(cell => cell !== " ");
+}
+
 function resetGame() {
-    statusText.textContent = "";
     initBoard();
 }
 

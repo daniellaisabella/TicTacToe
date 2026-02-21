@@ -1,8 +1,8 @@
 package org.example.tictactoe.controller;
 
 import org.example.tictactoe.dto.MoveRequest;
+import org.example.tictactoe.dto.MoveResponse;
 import org.example.tictactoe.model.Board;
-import org.example.tictactoe.model.Move;
 import org.example.tictactoe.service.GameService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +18,7 @@ public class GameController {
     }
 
     @PostMapping("/move")
-    public Move getBestMove(@RequestBody MoveRequest request) {
+    public MoveResponse getBestMove(@RequestBody MoveRequest request) {
 
         Board board = new Board(request.getBoard());
 
