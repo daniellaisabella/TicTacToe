@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TicTacToe AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Tic Tac Toe</h1>
+
+<div class="controls">
+
+    <div>
+        <label>Depth:</label>
+        <input type="range" id="depthSlider" min="1" max="9" value="3">
+        <span id="depthValue">3</span>
+    </div>
+
+    <div>
+        <label>Algorithm:</label>
+        <select id="algorithmSelect">
+            <option value="minimax">Minimax</option>
+            <option value="alphabeta">Alpha-Beta</option>
+        </select>
+    </div>
+
+    <button onclick="resetGame()">Reset</button>
+
+</div>
+
+<div id="board"></div>
+
+<h3 id="status"></h3>
+
+<script src="script.js"></script>
+</body>
+</html>
