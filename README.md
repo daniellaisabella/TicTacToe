@@ -1,4 +1,12 @@
  # TicTacToe – Minimax vs Alpha-Beta
+ 
+## Run the Application
+
+Start the Spring Boot application and open:
+
+http://localhost:8080
+
+to play the game using the graphical interface.
 
 ## Project Description
 
