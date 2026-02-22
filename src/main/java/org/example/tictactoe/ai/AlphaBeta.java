@@ -49,7 +49,7 @@ public class AlphaBeta {
                           boolean isMax,
                           char player) {
 
-        nodesVisited++;   // 🔥 TÆL NODE
+        nodesVisited++;
 
         if (depth == 0 || board.isGameOver()) {
             return board.evaluate(player);
@@ -72,7 +72,7 @@ public class AlphaBeta {
                 maxEval = Math.max(maxEval, eval);
                 alpha = Math.max(alpha, eval);
 
-                if (beta <= alpha) break;  // 🔥 PRUNING
+                if (beta <= alpha) break;
             }
 
             return maxEval;
@@ -92,7 +92,7 @@ public class AlphaBeta {
                 minEval = Math.min(minEval, eval);
                 beta = Math.min(beta, eval);
 
-                if (beta <= alpha) break;  // 🔥 PRUNING
+                if (beta <= alpha) break;
             }
 
             return minEval;
