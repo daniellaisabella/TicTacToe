@@ -12,7 +12,7 @@ to play the game using the graphical interface.
 
 This project implements a TicTacToe AI using:
 
-- Minimax algorithm
+- MinMax algorithm
 - Alpha-Beta pruning
 - Depth-limited search
 - Static evaluation function
@@ -24,7 +24,7 @@ The purpose is to compare Minimax and Alpha-Beta in terms of search efficiency a
 
 ## Algorithms Implemented
 
-### Minimax
+### MinMax
 
 Minimax explores the game tree recursively up to a given depth.
 
@@ -38,7 +38,7 @@ Minimax evaluates every possible move sequence up to the chosen depth.
 
 ### Alpha-Beta Pruning
 
-Alpha-Beta improves Minimax by pruning branches that cannot influence the final decision.
+Alpha-Beta improves MinMax by pruning branches that cannot influence the final decision.
 
 It maintains:
 
@@ -109,7 +109,7 @@ Each recursive call is counted as one visited node.
 
 This allows performance comparison between algorithms.
 
-Alpha-Beta should always visit fewer or equal nodes compared to Minimax.
+Alpha-Beta should always visit fewer or equal nodes compared to MinMax.
 
 ---
 
@@ -118,4 +118,4 @@ Alpha-Beta should always visit fewer or equal nodes compared to Minimax.
 - Both algorithms produce identical moves.
 - Alpha-Beta significantly reduces the number of explored nodes.
 - Search complexity grows exponentially with depth.
-- At depth 9, the AI plays perfectly.
+- At depth 9, the Computer plays perfectly.
